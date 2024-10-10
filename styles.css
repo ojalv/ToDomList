@@ -1,0 +1,93 @@
+#app > * {
+  display: grid;
+  background-color: rgba(167, 43, 43, 0.8);
+  border: solid 1px black;
+  border-radius: 24px;
+  margin: 24px;
+  padding: 12px;
+  color: white;
+  max-height: 90vh;
+}
+
+#app > form {
+  max-width: 320px;
+}
+
+#app > form > * {
+  margin-bottom: 12px;
+}
+
+#contenedor-tareas {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  overflow-y: scroll;
+}
+
+#app > #contenedor-tareas > h2 {
+  grid-area: titulo_tareas;
+  position: sticky;
+  top: 0px;
+  text-align: left;
+  width: 100%;
+}
+
+.cardTarea {
+  width: 100%;
+  grid-area: card_tarea;
+  background-color: rgba(167, 43, 43, 1);
+  border: solid 1px black;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-areas:
+    "t t"
+    "p p"
+    "v x";
+  justify-items: center;
+}
+
+.cardTarea > h3 {
+  grid-area: t;
+  text-align: center;
+}
+.cardTarea > p {
+  grid-area: p;
+  text-align: center;
+}
+.cardTarea > img:first-child {
+  grid-area: v;
+}
+.cardTarea > img:last-child {
+  display: flex;
+  grid-area: x;
+}
+
+@media (min-width: 0px) {
+  body {
+    background-color: brown;
+    background-image: url("./assets/img/dom-wallpaper-3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 700px) {
+  body {
+    background-image: url("./assets/img/dom-wallpaper-2.jpg");
+    background-position: right;
+    background-size: cover;
+  }
+  #contenedor-tareas {
+    gap: 12px;
+  }
+  .cardTarea {
+    width: 48%;
+  }
+}
+
+@media (min-width: 900px) {
+  .cardTarea {
+    width: 32%;
+  }
+}

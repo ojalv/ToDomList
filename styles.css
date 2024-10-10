@@ -33,10 +33,15 @@
   width: 100%;
 }
 
+.tareaCompleta{
+  background-color: rgba(85, 107, 47, 0.453) !important;
+  text-decoration: line-through;
+}
+
 .cardTarea {
   width: 100%;
   grid-area: card_tarea;
-  background-color: rgba(167, 43, 43, 1);
+  background-color: rgba(167, 43, 43, 0.62);
   border: solid 1px black;
   margin-bottom: 12px;
   display: grid;

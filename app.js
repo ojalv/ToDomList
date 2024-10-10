@@ -41,16 +41,22 @@ function app(listaDeTareas) {
         }
       });
       const hCompleta = document.createElement("img");
-      t.completa
-        ? hCompleta.setAttribute("src", "./assets/svg/double_check_green.svg")
-        : hCompleta.setAttribute("src", "./assets/svg/double_check_grey.svg");
+      if (t.completa) {
+        card.classList.add("tareaCompleta");
+        hCompleta.setAttribute("src", "./assets/svg/double_check_green.svg");
+      } else {
+        card.classList.remove("tareaCompleta");
+        hCompleta.setAttribute("src", "./assets/svg/double_check_grey.svg");
+      }
       hCompleta.addEventListener("click", () => {
         if (t.completa) {
           hCompleta.setAttribute("src", "./assets/svg/double_check_grey.svg");
           t.completa = false;
+          card.classList.remove("tareaCompleta");
         } else {
           hCompleta.setAttribute("src", "./assets/svg/double_check_green.svg");
           t.completa = true;
+          card.classList.add("tareaCompleta");
         }
       });
       hCompleta.addEventListener("pointerenter", () => {
@@ -141,12 +147,12 @@ function app(listaDeTareas) {
     hContenedor.appendChild(submit);
     document.getElementById("app").appendChild(hContenedor);
   }
-  function contenedorApp(){
-    const app = document.createElement("div")
-    app.id = "app"
-    document.body.appendChild(app)
+  function contenedorApp() {
+    const app = document.createElement("div");
+    app.id = "app";
+    document.body.appendChild(app);
   }
-  contenedorApp()
+  contenedorApp();
   bienvenida();
   crearTarea(listaDeTareas, cargarTareas);
   cargarTareas(listaDeTareas);

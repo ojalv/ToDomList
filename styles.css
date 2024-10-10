@@ -50,6 +50,7 @@
     "p p"
     "v x";
   justify-items: center;
+  cursor: crosshair;
 }
 
 .cardTarea > h3 {
@@ -60,6 +61,11 @@
   grid-area: p;
   text-align: center;
 }
+
+.cardTarea > img {
+  cursor:cell;
+}
+
 .cardTarea > img:first-child {
   grid-area: v;
 }

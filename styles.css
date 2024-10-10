@@ -22,7 +22,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: stretch;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #app > #contenedor-tareas > h2 {

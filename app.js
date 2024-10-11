@@ -131,6 +131,7 @@ function app(listaDeTareas) {
         listaDeTareas.push(
           new Tarea(inpNombreTarea.value, inpDescripcionTarea.value)
         );
+        localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
         document.getElementById("contenedor-tareas").remove();
         cargarTareas(listaDeTareas);
         inpNombreTarea.value = "";

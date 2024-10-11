@@ -1,21 +1,22 @@
 import { Tarea } from "./utils/classes.js";
 let listaDeTareas;
-if (!localStorage.getItem("tareas")) {
-  listaDeTareas = [
-    new Tarea("Tarea 1", "Presiona un titulo y cambia su texto"),
-    new Tarea("Tarea 2", "Presiona una descripcion y tambien cambiala"),
-    new Tarea(
-      "Tarea 3",
-      "Marca las casillas para indicar que las tareas estan completas"
-    ),
-    new Tarea("Tarea 4", "Eliminar las tareas que completaste"),
-  ];
-  localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
-} else {
-  listaDeTareas = JSON.parse(localStorage.getItem("tareas"));
-}
+
 
 function app(listaDeTareas) {
+  if (!localStorage.getItem("tareas")) {
+    listaDeTareas = [
+      new Tarea("Tarea 1", "Presiona un titulo y cambia su texto"),
+      new Tarea("Tarea 2", "Presiona una descripcion y tambien cambiala"),
+      new Tarea(
+        "Tarea 3",
+        "Marca las casillas para indicar que las tareas estan completas"
+      ),
+      new Tarea("Tarea 4", "Eliminar las tareas que completaste"),
+    ];
+    localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
+  } else {
+    listaDeTareas = JSON.parse(localStorage.getItem("tareas"));
+  }
   function cargarTareas(listaDeTareas) {
     const contenedor = document.createElement("div");
     contenedor.id = "contenedor-tareas";

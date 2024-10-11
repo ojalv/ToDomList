@@ -102,3 +102,10 @@
     width: 32%;
   }
 }
+
+
+@media (min-width: 1400px) {
+  .cardTarea {
+    width: 24%;
+  }
+}

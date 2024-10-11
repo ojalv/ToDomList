@@ -56,10 +56,12 @@
 .cardTarea > h3 {
   grid-area: t;
   text-align: center;
+  cursor:cell;
 }
 .cardTarea > p {
   grid-area: p;
   text-align: center;
+  cursor:cell;
 }
 
 .cardTarea > img {

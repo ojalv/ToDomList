@@ -31,20 +31,24 @@ function app(listaDeTareas) {
       card.classList.add("cardTarea");
       const hNombre = document.createElement("h3");
       hNombre.textContent = nombre;
+      hNombre.setAttribute("title", "Editar Titulo");
       hNombre.addEventListener("click", () => {
         const nuevoNombre = prompt("Nuevo Nombre");
         if (nuevoNombre) {
           hNombre.textContent = nuevoNombre;
-          t.descripcion = nuevoNombre;
+          t.nombre = nuevoNombre;
+          localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
         }
       });
       const hDescripcion = document.createElement("p");
       hDescripcion.textContent = descripcion;
+      hDescripcion.setAttribute("title", "Editar Descripcion");
       hDescripcion.addEventListener("click", () => {
         const nuevaDescripcion = prompt("Editar descripcion");
         if (nuevaDescripcion) {
           hDescripcion.textContent = nuevaDescripcion;
           t.descripcion = nuevaDescripcion;
+          localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
         }
       });
       const hCompleta = document.createElement("img");

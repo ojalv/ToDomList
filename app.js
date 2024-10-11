@@ -1,13 +1,20 @@
 import { Tarea } from "./utils/classes.js";
-let listaDeTareas = [
-  new Tarea("Tarea 1", "Presiona un titulo y cambia su texto"),
-  new Tarea("Tarea 2", "Presiona una descripcion y tambien cambiala"),
-  new Tarea(
-    "Tarea 3",
-    "Marca las casillas para indicar que las tareas estan completas"
-  ),
-  new Tarea("Tarea 4", "Eliminar las tareas que completaste"),
-];
+let listaDeTareas;
+if (!localStorage.getItem("tareas")) {
+  listaDeTareas = [
+    new Tarea("Tarea 1", "Presiona un titulo y cambia su texto"),
+    new Tarea("Tarea 2", "Presiona una descripcion y tambien cambiala"),
+    new Tarea(
+      "Tarea 3",
+      "Marca las casillas para indicar que las tareas estan completas"
+    ),
+    new Tarea("Tarea 4", "Eliminar las tareas que completaste"),
+  ];
+  localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
+} else {
+  listaDeTareas = JSON.parse(localStorage.getItem("tareas"));
+}
+
 function app(listaDeTareas) {
   function cargarTareas(listaDeTareas) {
     const contenedor = document.createElement("div");
@@ -58,6 +65,7 @@ function app(listaDeTareas) {
           t.completa = true;
           card.classList.add("tareaCompleta");
         }
+        localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
       });
       hCompleta.addEventListener("pointerenter", () => {
         if (t.completa) {
@@ -83,6 +91,7 @@ function app(listaDeTareas) {
         if (idx != -1) {
           listaDeTareas.splice(idx, 1);
           console.log("Se elimino:", t.nombre);
+          localStorage.setItem("tareas", JSON.stringify(listaDeTareas));
         }
       });
       hBorrar.addEventListener("pointerenter", () => {
